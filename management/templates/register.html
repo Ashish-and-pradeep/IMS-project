@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}Register {% endblock %}
+
+{% block body %}
+ <div class="row justify-content-md-center mt-5">
+    <div class="col-sm-4">
+
+        <h2 class="text-center">Sign Up!</h2>
+        {% if err %}
+        <div class="alert alert-danger" role="alert">
+            {{err}}
+        </div>
+        {% endif %}
+
+
+
+        <form class="mt-5" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input name="name" type="text" class="form-control" id="name" value="{{values.name}}" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input name="email" type="email" class="form-control" id="email" value="{{values.email}}" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input name="password" type="password" class="form-control" id="password" required>
+                </div>
+            </div>
+<!--             <div class="row mb-3">-->
+<!--                <label for="user" class="col-sm-2 col-form-label" >User</label>-->
+<!--                <div class="col-sm-10">-->
+<!--                   <select name="user">-->
+<!--                       <option value="">&#45;&#45;&#45;&#45;&#45;&#45;Select user&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+
+<!--                       <option name="user"  id="user" >Student</option>-->
+
+<!--                   </select>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label" >Branch</label>
+                <div class="col-sm-10">
+                   <select name="branch" >
+                       <option name="branch" value='None' >------Select Branch------</option>
+                       <option name="branch"  >Computer Science</option>
+                       <option name="branch"  >Leather Technology</option>
+                       <option name="branch"  >Footwear Technology</option>
+                   </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label" >Year</label>
+                <div class="col-sm-10">
+                   <select name="type" >
+                       <option value="" >------Select User------</option>
+                       <option name="type"  >Student</option>
+                       <option name="type"  >Teacher</option>
+                   </select>
+                </div>
+            </div>
+
+            <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" required >
+                        <label class="form-check-label" for="gender1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input " type="radio" name="gender" id="gender2" value="female" required>
+                        <label class="form-check-label " for="gender2">
+                            Female
+                        </label>
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <textarea name="address" id="address" style="resize:none;"  required></textarea>
+                </div>
+            </div>
+                <div class="row mb-3">
+                <label for="image" class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                    <input name="image" type="file" class="form-control" id="image" accept="image/*" required>
+                </div>
+            </div>
+            </fieldset>
+
+            <div class="text-center mb-5">
+                <button type="submit" class="btn btn-warning ">Sign Up</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

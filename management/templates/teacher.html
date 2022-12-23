@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Panel {% endblock %}
+{% block body %}
+<div class="container">
+<div class="row mt-5">
+    <div class="col-sm-2">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action"> My Account </a>
+<!--            <a href="#" class="list-group-item list-group-item-action">My Orders </a>-->
+<!--            <a href="#" class="list-group-item list-group-item-action">My Cart </a>-->
+            <a href="#" class="list-group-item list-group-item-action">Logout </a>
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <h2 class="text-center mb-5">My Profile</h2>
+        <table class="table" >
+            <tbody>
+            <tr>
+                <td class="fw-bold">Name</td><td class="text-uppercase">{{detail.name}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Email</td><td>{{detail.email}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Address</td><td class="text-uppercase">{{detail.address}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Branch</td><td class="text-uppercase">{{detail.branch}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Gender</td><td class="text-uppercase">{{detail.gender}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Contact</td><td class="text-uppercase">{{detail.contact}}</td>
+            </tr>
+<!--            <tr>-->
+<!--                <td class="fw-bold">Password</td><td><a href="#" class="btn btn-warning">Change Password</a></td>-->
+<!--            </tr>-->
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-auto">
+        <div class="ms-5" style="height:100px; width:80px; border:1px solid black;">
+            <img src="{{ gl.image.url}}" height="100px" width="80px"/>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container-fluid">
+    <h2 class="bg-secondary text-center">UPLOAD CONTENTS FOR STUDENTS</h2>
+
+     <form action="{% url 'notes' %}" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+         <table>
+             <tr><th>Subject. <input type="text" name="sub" required></th></tr>
+             <tr><th>Subject. <input type="file" name="notes" required></th></tr>
+             <tr><td><input type="text" value="{{detail.name}}" name="tname" hidden> </td></tr>
+             <tr><td><input type="submit" value="Upload"></td></tr>
+
+         </table>
+     </form>
+</div>
+{% endblock %}

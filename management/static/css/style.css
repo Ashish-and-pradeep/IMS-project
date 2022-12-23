@@ -1,0 +1,29 @@
+ .smi
+{
+    list-style-type: none;
+}
+.smi li
+{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 50%;
+}
+.header
+{
+  text-align:center;
+  font-size:50px;
+  padding:40px;
+  text-shadow:5px 5px 25px red;
+  font-weight:bold;
+  color:white;
+}
+.about
+{
+  height:50px;
+  box-shadow:5px 5px 25px black;
+  text-shadow:5px 5px 25px red;
+  color:white;
+  border-radius:50px;
+}

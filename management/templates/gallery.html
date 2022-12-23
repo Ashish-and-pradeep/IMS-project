@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Gallery {% endblock %}
+
+{% block body %}
+{% for gl in gallery %}
+ <div class="col-sm-auto mt-3">
+        <div class="ms-5" style="height:100px; width:80px; border:1px solid black;">
+            <img src="{{ gl.image.url}}" height="250px" width="200px"/>
+        </div>
+    </div>
+
+{% endfor %}
+{% endblock %}
